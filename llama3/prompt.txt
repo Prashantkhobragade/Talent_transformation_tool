@@ -1,0 +1,284 @@
+
+*** PROMPT 1 ***
+
+"Design a Recommender System for Suggesting Relevant Training Courses based on User Input.
+
+**Input Parameters:**
+
+* `experience`: A list of integers or a range of years representing the user's experience in their current role or a related field.
+* `skills`: A list of strings or categories representing the user's skills and expertise.
+* `mandatory_courses`: A dataframe containing course information for mandatory courses, with columns:
+	+ `course_name`: A string representing the name of the mandatory course.
+	+ `course_link`: A string representing the link to the course.
+	+ `course_length`: An integer representing the duration of the course in hours.
+	+ `course_type`: A string indicating whether the course is mandatory or optional.
+* `optional_courses`: A dataframe containing course information for optional courses, with columns similar to `mandatory_courses`.
+
+**Output:**
+
+For the given `user_experience` and `user_skills`, output a JSON object containing three sets of training courses for mandatory courses and one set for optional courses. The JSON object should have the following structure:
+```json
+{
+  "mandatory_courses": [
+    {
+      "title": "Course Title 1",
+      "link": "https://example.com/course1",
+      "length": 8,
+      "type": "mandatory"
+    },
+    ...
+  ],
+  "optional_courses": [
+    {
+      "title": "Course Title 2",
+      "link": "https://example.com/course2",
+      "length": 4,
+      "type": "optional"
+    },
+    ...
+  ]
+}
+```
+**Constraints:**
+
+* Ensure that the recommended courses are sufficiently different from those already completed by the user.
+* Prioritize courses with the shortest duration.
+* For optional courses, prioritize courses that are more relevant to the user's skills and experience.
+
+**Evaluation Metrics:**
+
+* User experience and skills overlap with recommended course content
+* Diversity of recommended courses
+* Relevance of recommended courses to user's current role or field
+* Practicality and feasibility of the recommended courses
+
+**Model Requirements:**
+
+* Recommend courses based on the user's experience and skills.
+* Ensure that recommended courses are relevant to the user's current role or field.
+* Consider the user's previous course completions and provide varied and diverse recommendations.
+
+**Evaluation:**
+
+* Precision: How well do the recommended courses align with the user's experience and skills?
+* Recall: How well do the recommended courses cover the user's knowledge gaps?
+* F1-score: How well-balanced are the recommended courses in terms of relevance and diversity?
+
+**Output Format:**
+
+The recommended courses should be returned in JSON format, with each course represented as an object with the following properties:
+```json
+{
+  "title": string,
+  "link": string,
+  "length": integer,
+  "type": string
+}
+```
+The output JSON object should contain the recommended mandatory and optional courses, as described above.
+
+**Example Output:**
+```json
+{
+  "mandatory_courses": [
+    {
+      "title": "Course Title 1",
+      "link": "https://example.com/course1",
+      "length": 8,
+      "type": "mandatory"
+    },
+    {
+      "title": "Course Title 2",
+      "link": "https://example.com/course2",
+      "length": 6,
+      "type": "mandatory"
+    },
+    {
+      "title": "Course Title 3",
+      "link": "https://example.com/course3",
+      "length": 10,
+      "type": "mandatory"
+    }
+  ],
+  "optional_courses": [
+    {
+      "title": "Course Title 4",
+      "link": "https://example.com/course4",
+      "length": 4,
+      "type": "optional"
+    }
+  ]
+}
+```
+
+
+*** PROMPT 2 ***
+
+**Prompt:**
+
+"Design a Recommender System for Suggesting Relevant Training Courses based on User Input.
+
+**Input Parameters:**
+
+* `user_experience`: A list of integers or a range of years representing the user's experience in their current role or a related field.
+* `user_skills`: A list of strings or categories representing the user's skills and expertise.
+
+**Dataset:**
+
+* `dataset`: A dataframe containing information about various courses, with columns:
+	+ `course_name`: A string representing the name of the course.
+	+ `course_link`: A string representing the link to the course.
+	+ `course_length`: An integer representing the duration of the course in hours.
+	+ `course_type`: A string indicating whether the course is mandatory or optional.
+
+**Output:**
+
+For the given `user_experience` and `user_skills`, output a JSON object containing three sets of 
+recommended courses for mandatory courses and one set for optional courses. 
+The JSON object should have the following structure:
+
+```json
+{
+  "recommended_courses": [
+    {
+      "title": "Course Title 1",
+      "link": "https://example.com/course1",
+      "length": 8,
+      "type": "mandatory"
+    },
+    ...
+  ],
+  "optional_course": [
+    {
+      "title": "Course Title 2",
+      "link": "https://example.com/course2",
+      "length": 4,
+      "type": "optional"
+    }
+  ]
+}
+```
+**Constraints:**
+
+* Ensure that the recommended courses are sufficiently different from those already completed by the user.
+* Prioritize courses with the shortest duration.
+* For optional courses, prioritize courses that are more relevant to the user's skills and experience.
+
+**Evaluation Metrics:**
+
+* User experience and skills overlap with recommended course content
+* Diversity of recommended courses
+* Relevance of recommended courses to user's current role or field
+* Practicality and feasibility of the recommended courses
+
+**Model Requirements:**
+
+* Recommend courses based on the user's experience and skills.
+* Ensure that recommended courses are relevant to the user's current role or field.
+* Consider the user's previous course completions and provide varied and diverse recommendations.
+
+**Evaluation:**
+
+* Precision: How well do the recommended courses align with the user's experience and skills?
+* Recall: How well do the recommended courses cover the user's knowledge gaps?
+* F1-score: How well-balanced are the recommended courses in terms of relevance and diversity?
+
+**Output Format:**
+
+The recommended courses should be returned in JSON format, with each course represented as an object with the following properties:
+```json
+{
+  "title": string,
+  "link": string,
+  "length": integer,
+  "type": string
+}
+```
+The output JSON object should contain the recommended courses, as described above.
+
+**Example Output:**
+```json
+{
+  "recommended_courses": [
+    {
+      "title": "Course Title 1",
+      "link": "https://example.com/course1",
+      "length": 8,
+      "type": "mandatory"
+    },
+    {
+      "title": "Course Title 2",
+      "link": "https://example.com/course2",
+      "length": 6,
+      "type": "mandatory"
+    },
+    {
+      "title": "Course Title 3",
+      "link": "https://example.com/course3",
+      "length": 10,
+      "type": "mandatory"
+    }
+  ],
+  "optional_course": [
+    {
+      "title": "Course Title 4",
+      "link": "https://example.com/course4",
+      "length": 4,
+      "type": "optional"
+    }
+  ]
+}
+```
+I hope this updated prompt meets your requirements!
+
+
+*** PROMPT 3 ***
+
+**Prompt:**
+
+"Act as helpfull Talent Transformation assistant and suggest the best Courses to take based on the given 
+context, given Input.
+
+
+Prepare 3 sets of courses by total learning hours:
+- Set 1 (1-day plan): Course duration < 3 hours
+- Set 2 (3-day plan): Course duration between 3 and 20 hours
+- Set 3 (5-day plan): Course duration > 20 hours
+
+**Input:**
+
+* `user_experience`: A list of integers or a range of years representing the user's experience in their current role or a related field.
+* `user_skills`: A list of strings or categories representing the user's skills and expertise.
+
+**Dataset:**
+
+* `dataset`: A dataframe containing information about various courses, with columns:
+	+ `course_name`: A string representing the name of the course.
+	+ `course_link`: A string representing the link to the course.
+	+ `course_length`: An integer representing the duration of the course in hours.
+	+ `course_type`: A string indicating whether the course is mandatory or optional.
+
+**Output:**
+
+For the given `user_experience` and `user_skills`, output a JSON object containing three sets of recommended courses for mandatory courses and one set for optional courses. The JSON object should have the following structure:
+```json
+{
+  "recommended_courses": [
+    {
+      "course_name": "Course Title 1",
+      "course_link": "https://example.com/course1",
+      "course_length": 8,
+      "course_type": "mandatory"
+    },
+    ...
+  ],
+  "optional_course": [
+    {
+      "course_name": "Course Title 2",
+      "course_link": "https://example.com/course2",
+      "course_length": 4,
+      "course_type": "optional"
+    }
+  ]
+}
+```
